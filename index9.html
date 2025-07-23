@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QwertyVM</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="lang.js" defer></script>
+<script src="queue.js" defer></script>
+</head>
+<body>
+<header>
+  <h1 id="title">QwertyVM</h1>
+  <select id="langSelect" aria-label="Select language">
+    <option value="en">English</option>
+    <option value="ru">Русский</option>
+    <option value="ua">Українська</option>
+  </select>
+</header>
+<main>
+  <section id="vmList">
+    <!-- VM карточки будут тут -->
+  </section>
+  <section id="chat">
+    <iframe src="https://app.kosmi.io/room/@andrey7" frameborder="0" allowfullscreen></iframe>
+  </section>
+</main>
+<footer>
+  <p><a href="rules.html" id="rulesLink">Rules</a></p>
+</footer>
+</body>
+</html>
