@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rules - QwertyVM</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="lang.js" defer></script>
+</head>
+<body>
+<header>
+  <h1 id="title">QwertyVM</h1>
+  <select id="langSelect" aria-label="Select language">
+    <option value="en">English</option>
+    <option value="ru">Русский</option>
+    <option value="ua">Українська</option>
+  </select>
+</header>
+<main>
+  <h2 id="rulesTitle">Rules</h2>
+  <ul id="rulesList">
+    <li>Do not destroy virtual machines except allowed ones.</li>
+    <li>Respect other users and admins.</li>
+    <li>Follow the queue and wait for your turn.</li>
+    <li>Do not abuse system resources.</li>
+  </ul>
+</main>
+<script>
+const rulesTranslations = {
+  en: {
+    rulesTitle: "Rules",
+    rulesList: [
+      "Do not destroy virtual machines except allowed ones.",
+      "Respect other users and admins.",
+      "Follow the queue and wait for your turn.",
+      "Do not abuse system resources."
+    ],
+  },
+  ru: {
+    rulesTitle: "Правила",
+    rulesList: [
+      "Не уничтожать виртуальные машины, кроме разрешённых.",
+      "Уважать других пользователей и админов.",
+      "Следовать очереди и ждать своей очереди.",
+      "Не злоупотреблять ресурсами системы."
+    ],
+  },
+  ua: {
+    rulesTitle: "Правила",
+    rulesList: [
+      "Не знищувати віртуальні машини, крім дозволених.",
+      "Поважати інших користувачів та адміністраторів.",
+      "Дотримуватися черги та чекати своєї черги.",
+      "Не зловживати ресурсами системи."
+    ],
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = localStorage.getItem("lang") || "en";
+  document.getElementById("rulesTitle").textContent = rulesTranslations[lang].rulesTitle;
+  const list = document.getElementById("rulesList");
+  list.innerHTML = "";
+  for (const rule of rulesTranslations[lang].rulesList) {
+    const li = document.createElement("li");
+    li.textContent = rule;
+    list.appendChild(li);
+  }
+});
+</script>
+</body>
+</html>
